@@ -1,4 +1,4 @@
-#include<iostream>
+//#include<iostream>
 #include "while.h"
 
 using std::cout;
@@ -8,14 +8,25 @@ using std::string;
 //the sum of all the squares of that number from 1 to the number. 
 //Example: sum_of_squares(4) 
 //1*1 + 2 * 2 + 3*3 + 4*4 = 30
+
+// while(condition)
+//{
+    //code to make the condition false
+//}
+
 int sum_of_squares(int num)
 {
     auto sum = 0;
+    // index = 0;
 
     while(num > 0)
+    //while(index <= num)
     {
-        sum = num * num + sum;
-        num--;//decrement 1 from the current value of num
+        sum += num * num;
+        num--;//decrement 1 from the current value of num  //num -= 1; or num = num -1;
+        
+        //sum = index * index + sum; 
+        //index++;
     }
 
     return sum;

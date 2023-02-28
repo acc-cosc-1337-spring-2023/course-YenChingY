@@ -12,20 +12,19 @@ int main()
 	do
 	{
 		cout<<"Enter a number :";
-	cin>>num;
+		cin>>num;
 
-	auto result = sum_of_squares(num);
-	cout<<"Sum of squares: "<<result<<"\n";
+		auto result = sum_of_squares(num);
+		cout<<"Sum of squares: "<<result<<"\n";
 
-	cout<<"Continue, enter y...: ";
-	cin>>choice;
-		
+		cout<<"Continue, enter y...: ";
+		cin>>choice;
 	} 
 	while (choice == 'y' || choice == 'Y');
 	
 	
-	/*string name = "Hello";
-	display(name);*/
+	string name = "Hello";
+	display(name);
 
 
 	return 0;
