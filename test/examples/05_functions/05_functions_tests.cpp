@@ -34,12 +34,12 @@ TEST_CASE("Test get gross pay default parameter")
 	REQUIRE(get_gross_pay(40, 10) == 400);
 }
 
-TEST_CASE("Verify get gross pay with double") 
+TEST_CASE("Verify get gross pay function overload with double") 
 {
 	REQUIRE(get_gross_pay(40, 7.5) == 300);
 }
 
-TEST_CASE("Verify get gross pay default parameter") 
+TEST_CASE("Verify get gross pay function overload default parameter") 
 {
 	REQUIRE(get_gross_pay(40,10,100) == 401);	
 }
