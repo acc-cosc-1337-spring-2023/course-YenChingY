@@ -9,6 +9,19 @@ TEST_CASE("Verify Test Configuration", "verification") {
 	REQUIRE(true == true);
 }
 
+TEST_CASE("Test string functin parameters val and ref")
+{
+	string str1 = "C++";
+	string str2 = "Java";
+	string str3 = "Python";
+
+	str_val_ref_param(str1, str2, str3);
+
+	REQUIRE(str1 == "C++");
+	REQUIRE(str2 == "changed");
+	REQUIRE(str3 == "Python");
+}
+
 TEST_CASE("Test string value, ref, and const ref params")
 {
 	string str1 = "C++";
@@ -22,10 +35,11 @@ TEST_CASE("Test string value, ref, and const ref params")
 	REQUIRE(str3 == "C++");
 }
 
+
 TEST_CASE("Test string value parameter w for range")
 {
 	string str = "C++";
-	iterate_string_val_params(str);
+	iterate_string_val_param(str);
 
 	REQUIRE(str == "C++");
 }
@@ -33,7 +47,7 @@ TEST_CASE("Test string value parameter w for range")
 TEST_CASE("Test string ref parameter w for range")
 {
 	string str = "C++";
-	iterate_string_ref_params(str);
+	iterate_string_ref_param(str);
 
 	REQUIRE(str == "zzz");
 }
