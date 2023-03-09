@@ -29,7 +29,7 @@ int main()
 
 	//prompt user for a keyboard number
 	//assign the number to the value variable
-	cout<<"Ebter a number: ";
+	cout<<"Enter a number: ";
 	cin>>value;
 
 	//call the is_even function with value as its argument

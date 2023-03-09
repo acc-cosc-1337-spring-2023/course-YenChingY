@@ -1,3 +1,4 @@
+//do while loop excute at least one time and check the condition
 #include "do_while.h"
 
 using std::cin; using std::cout;

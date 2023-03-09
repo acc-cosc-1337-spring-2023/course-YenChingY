@@ -29,7 +29,7 @@ int sum_of_squares_for(int num)
     auto sum = 0;
 
     //for (; num > 0; num--) ---> make sure to change i*i to num*num
-    for(auto i=0; i <= num; i++)
+    for(auto i=0; i <= num; i++) //initalize stage; comparison stage; update stage
     {
         //sum += num * num;
         sum = i*i + sum;//sum += i * i -->could write like this too

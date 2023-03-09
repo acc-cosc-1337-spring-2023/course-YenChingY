@@ -5,8 +5,8 @@ using std::vector; using std::cout;
 
 int main()
 {
-    vector<int> nums;//empty list
-    cout<<"Size: "<<nums.size()<<"\n";
+    vector<int> nums;//empty list - only can store one data type
+    cout<<"Size: "<<nums.size()<<"\n";//vecor use size but string use length
     cout<<"Capacity: "<<nums.capacity()<<"\n\n";
 
     nums.push_back(4);
