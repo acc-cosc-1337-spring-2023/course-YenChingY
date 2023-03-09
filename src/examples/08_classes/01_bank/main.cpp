@@ -8,11 +8,19 @@ using std::cout; using std::cin;
 
 int main()
 {
+	BankAccount* bank_account;//doesn't point to a variable;
+
 	srand(time(NULL));//generate true randoms on each main run execution
 	SavingsAccount savings;
+	show_balance(savings);
+	cout<<savings.get_balance()<<"\n";
+
+	bank_account = &savings;
+	cout<<bank_account->get_balance()<<"\n";//must use arrow ->operator
 
 	CheckingAccount account;//customer 1
 	
+	/*
 	auto choice = 's';
 
 	cout<<"Use checking or savings?";
@@ -41,6 +49,7 @@ int main()
 	//cout<<"Balance: "<<account.get_balance()<<"\n";
 	//CheckingAccount account1(100);//customer 2 for initial balance
 	//cout<<"Balance: "<<account1.get_balance()<<"\n";
+	*/
 
 	return 0;
 }

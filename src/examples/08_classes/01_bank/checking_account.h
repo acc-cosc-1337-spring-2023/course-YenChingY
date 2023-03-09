@@ -23,3 +23,12 @@ public:
 //    char * sequence;
 //    int size;
 //};
+
+//class Vector
+//{
+//public:
+//    int size(){return size;}
+//private:
+//    int* elements;
+//    int size;
+//};
