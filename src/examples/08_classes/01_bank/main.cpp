@@ -1,24 +1,28 @@
 #include<iostream>
 #include<time.h>
+#include<vector>
 #include "checking_account.h"
 #include "atm.h"
 #include "savings_account.h"
 
 using std::cout; using std::cin;
+using std::vector;
 
 int main()
 {
-	BankAccount* bank_account;//doesn't point to a variable;
-
 	srand(time(NULL));//generate true randoms on each main run execution
+	vector<BankAccount*> accounts;
 	SavingsAccount savings;
-	show_balance(savings);
-	cout<<savings.get_balance()<<"\n";
+	CheckingAccount checking;
+	accounts.push_back(&savings);
+	accounts.push_back(&checking);
 
-	bank_account = &savings;
-	cout<<bank_account->get_balance()<<"\n";//must use arrow ->operator
+	run_menu(accounts);
 
-	CheckingAccount account;//customer 1
+	//bank_account = &savings;
+	//cout<<bank_account->get_balance()<<"\n";//must use arrow ->operator
+
+	//CheckingAccount account;//customer 1
 	
 	/*
 	auto choice = 's';
