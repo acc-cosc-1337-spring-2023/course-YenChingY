@@ -13,7 +13,17 @@ iterate with auto
 
 int main() 
 {
-	Shape shape;
+	Shape* shape;//create dynamic memory
+
+	shape = new Line();//create dynamic memory
+	shape->draw();
+	delete shape;
+
+	shape = new Circle();
+	shape->draw();
+	delete shape;
+
+	/*Shape shape;
 	shape.draw();
 
 	Line line;
@@ -27,7 +37,7 @@ int main()
 	shape_ptr->draw();
 
 	shape_ptr = &circle;
-	shape_ptr->draw();
+	shape_ptr->draw();*/
 
 	return 0;
 }
