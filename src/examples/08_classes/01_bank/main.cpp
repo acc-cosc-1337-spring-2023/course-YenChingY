@@ -11,16 +11,17 @@ using std::vector;
 int main()
 {
 	srand(time(NULL));//generate true randoms on each main run execution
-	vector<BankAccount*> accounts;
+	vector<BankAccount*> accounts;//create an empty list of BankAccount pointers
 	SavingsAccount savings;
-	CheckingAccount checking;
-	accounts.push_back(&savings);
+	CheckingAccount checking;//customer 0
+
 	accounts.push_back(&checking);
+	accounts.push_back(&savings);
 
 	run_menu(accounts);
 
 	//bank_account = &savings;
-	//cout<<bank_account->get_balance()<<"\n";//must use arrow ->operator
+	//cout<<bank_account->get_balance()<<"\n";//must use arrow ->operator//dereference the pointer
 
 	//CheckingAccount account;//customer 1
 	
@@ -30,7 +31,7 @@ int main()
 	cout<<"Use checking or savings?";
 	cin>>choice;
 
-	if(choice == 'c')
+	if(choice == 'c' || choice == 'C')
 	{
 		cout<<account;
 		cout<<account.get_balance()<<"\n";

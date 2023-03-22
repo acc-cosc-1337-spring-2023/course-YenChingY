@@ -2,8 +2,10 @@
 #include<iostream>
 #include "bank_account.h"
 
-#ifndef CHECKING_ACCOUNT_H
-#define CHECKING_ACCOUNT_H
+//Need to include header guard everytime when writing the class
+#ifndef CHECKING_ACCOUNT_H//if not define
+#define CHECKING_ACCOUNT_H//define it
+
 
 class CheckingAccount: public BankAccount //inherit from BankAccount
 {
@@ -13,7 +15,7 @@ public:
 
 };
 
-#endif
+#endif//end of if
 
 //class string
 //{

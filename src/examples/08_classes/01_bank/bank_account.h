@@ -1,5 +1,5 @@
 //bank_account.h
-#include<stdlib.h>
+#include<stdlib.h>//for rand()function
 #include<iostream>
 
 #ifndef BANK_ACCOUNT_H
@@ -14,6 +14,7 @@ public:
     BankAccount(){get_balance_from_db();}//default constructor
     BankAccount(int b) : balance(b){/*empty code block*/}
     virtual int get_balance() const{return balance;}
+    //virtual: if the pointer points to another function and the signature is the same, then ignor this function, do the one with overriden.
     void deposit(int amount);
     void withdraw(int amount);
 private:

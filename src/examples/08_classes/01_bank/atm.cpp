@@ -15,6 +15,7 @@ void display_menu()
 void run_menu(std::vector<BankAccount*> &accounts)
 {
     auto option = 0;
+
     auto choice = 0;
 
     cout<<"Checking(1) or Savings(2): ";
@@ -52,7 +53,7 @@ void handle_menu_option(int option, BankAccount* account)
         break;
     case 3:
         cout<<"Balance: ";
-        cout<<account->get_balance();
+        cout<<account->get_balance()<<"\n";
         break;
     case 4:
         cout<<"Exiting...\n";
