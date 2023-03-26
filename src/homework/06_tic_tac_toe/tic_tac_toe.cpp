@@ -41,7 +41,10 @@ string TicTacToe::get_player() const
 
 void TicTacToe::clear_board()
 {
-    vector<string> pegs{" ", " ", " ", " ", " ", " ", " ", " ", " "};
+    for(auto i = 0; i < 9; i++)
+    {
+        pegs[i] = " ";
+    }
 }
 
 void TicTacToe::mark_board(int position)
