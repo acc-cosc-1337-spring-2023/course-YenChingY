@@ -63,3 +63,50 @@ string get_letter_grade_using_switch(int grade)
     }
     return result;
 }
+
+//code from professor: dealing all the choice in cpp and just call run_menu() in main.
+/*void display_menu()
+{
+    cout<<"1-Letter grade using if\n";
+    cout<<"2-Letter grade using switch\n";
+    cout<<"3-Exit\n";
+}
+
+void run_menu()
+{
+    auto choice = 0;
+    string letter_grade;
+    display_menu();
+    cout<<"Enter choice: ";
+    cin>>choice;
+
+    if(choice > 2)
+    {
+        cout<<"Invalid option\n";
+        return;
+    }
+
+    handle_menu_option(choice);
+}
+
+void handle_menu_option(int choice)
+{
+    auto grade = 0;
+    string letter_grade;
+
+    cout<<"Enter grade: ";
+    cin>>grade;
+
+    if(choice == 1)
+    {
+        letter_grade = get_letter_grade_using_if(grade);
+    }
+    else if(choice == 2)
+    {
+        letter_grade = get_letter_grade_using_switch(grade);
+    }
+
+    cout<<letter_grade<<"\n";
+
+}
+*/
