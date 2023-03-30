@@ -11,3 +11,8 @@ public:
 };
 
 #endif
+
+class OtherLine : public Line
+{
+
+};
