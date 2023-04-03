@@ -1,19 +1,25 @@
-#include<iostream>
 #include<time.h>
 #include<vector>
-#include<memory>
-#include "checking_account.h"
 #include "atm.h"
-#include "savings_account.h"
+#include "customer.h"
 
-using std::cout; using std::cin; using std::vector;
-using std::unique_ptr; using std::make_unique;
-using std::move;
+using std::vector;
 
 int main()
 {
 	srand(time(NULL));//generate true randoms on each main run execution
-	vector<unique_ptr<BankAccount>> accounts;//empty list
+
+	std::vector<Customer> customers;
+	customers.push_back(Customer());
+	customers.push_back(Customer());
+	customers.push_back(Customer());
+	customers.push_back(Customer());
+	customers.push_back(Customer());
+
+	run_menu(customers);
+
+
+	/*vector<unique_ptr<BankAccount>> accounts;//empty list
 	unique_ptr<BankAccount> savings = make_unique<SavingsAccount>();
 	unique_ptr<BankAccount> checking = make_unique<CheckingAccount>();//customer 0
 
@@ -24,7 +30,7 @@ int main()
 	cout<<accounts[1]->get_balance()<<"\n";
 
 
-	run_menu(accounts);
+	run_menu(accounts);*/
 
 	//bank_account = &savings;
 	//cout<<bank_account->get_balance()<<"\n";//must use arrow ->operator//dereference the pointer
