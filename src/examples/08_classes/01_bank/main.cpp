@@ -2,6 +2,8 @@
 #include<vector>
 #include "atm.h"
 #include "customer.h"
+#include "atm_data.h"
+#include "iostream"
 
 using std::vector;
 
@@ -16,7 +18,17 @@ int main()
 	customers.push_back(Customer());
 	customers.push_back(Customer());
 
-	run_menu(customers);
+	ATMData data;
+	data.save_customers(customers);
+	std::vector<Customer>& cus = data.get_customers();
+
+	for(auto& c :cus)
+	{
+		std::cout<<c.get_account(0)->get_balance()<<" ";
+		std::cout<<c.get_account(1)->get_balance()<<"\n";
+	}
+
+	//run_menu(customers);
 
 
 	/*vector<unique_ptr<BankAccount>> accounts;//empty list
