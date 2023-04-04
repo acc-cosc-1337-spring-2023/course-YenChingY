@@ -13,31 +13,40 @@ void display_menu()
     cout<<"4-Exit\n";
 }
 
-void run_menu(std::vector<Customer> &customers)
+void run_menu(ATMData& atm_data)
 {
+    vector<Customer>& customers =  atm_data.get_customers();
     auto option = 0;
     auto choice = 0;
-    cout<<"Enter value to scan card: ";
-    cin>>choice;
-
-    auto customer_index = scan_card(customers.size());
-    auto& customer = customers[customer_index]; 
-
-    cout<<"Checking(1) or Savings(2): ";
-    cin>>choice;
-
-    std::unique_ptr<BankAccount> &account = customer.get_account(choice - 1);
-
 
     do
     {
-        display_menu();
-        cout<<"Enter menu option: ";
-        cin>>option;
-        handle_menu_option(option, account);
-    } 
-    while (option != 4);
-    
+        cout<<"\nEnter value to scan card: ";
+        cin>>choice;
+
+        auto customer_index = scan_card(customers.size());
+        auto& customer = customers[customer_index]; 
+
+        cout<<"Checking(1) or Savings(2): ";
+        cin>>choice;
+
+        std::unique_ptr<BankAccount> &account = customer.get_account(choice - 1);
+
+
+        do
+        {
+            display_menu();
+            cout<<"Enter menu option: ";
+            cin>>option;
+            handle_menu_option(option, account);
+            if(option == 4)
+            {
+                atm_data.save_customers(customers);
+            }
+        } 
+        while (option != 4);
+    }
+    while(true);    
 }
 
 void handle_menu_option(int option, std::unique_ptr<BankAccount> &account)
@@ -61,7 +70,7 @@ void handle_menu_option(int option, std::unique_ptr<BankAccount> &account)
         cout<<account->get_balance()<<"\n";
         break;
     case 4:
-        cout<<"Exiting...\n";
+        cout<<"\nExiting...\n";
         break;
     default:
         cout<<"Invalid option...";
@@ -73,5 +82,5 @@ void handle_menu_option(int option, std::unique_ptr<BankAccount> &account)
 
 int scan_card(int max_value)
 {
-    return rand() % 5;
+    return rand() % max_value;
 }
