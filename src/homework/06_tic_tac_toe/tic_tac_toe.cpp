@@ -49,7 +49,14 @@ void TicTacToe::clear_board()
 
 void TicTacToe::mark_board(int position)
 {
-    pegs[position - 1] = player;
+    //if(pegs[position - 1] != " " )
+    //{
+    //    cout<<"The space taken. Please select a new position\n";
+    //}
+    //else
+    //{
+        pegs[position - 1] = player;
+    //}
     set_next_player();
 }
 
@@ -87,13 +94,14 @@ bool TicTacToe::game_over()
 {
     if(check_column_win() || check_row_win() || check_diagonal_win())
     {
+        get_winner();
         set_winner();
         return true;
     }
     else if(check_board_full())
     {
         winner = "C";
-        get_winner(); //need modify to tie condition
+        get_winner() = "C"; //modify to tie condition
         return true;
     }
     else
@@ -102,6 +110,7 @@ bool TicTacToe::game_over()
 
 string TicTacToe::get_winner()
 {
+    //cout<<winner;
     return winner;
 }
 

@@ -8,31 +8,41 @@ int main()
 
 	auto position = 0;
 	string player;
+	string winner;
 	bool gameover = false;
 	auto choice = 'y';
 	
 	while(choice == 'Y' || choice == 'y')
 	{
-
-		cout<<"Select player (X or O): ";
-    	cin>>player;
-
-		game1.get_player();
-		game1.start_game(player);
-		for(auto i = 0; i < 9; i++)
+		do
+		{
+			cout<<"Select player (X or O): ";
+    		cin>>player;
+		} while (player != "X" && player != "O");
+		
+			game1.get_player();
+			game1.start_game(player);
+		do
 		{
 			cout<<"\nSelect a position from (1-9): ";
     		cin>>position;
-    		game1.mark_board(position);
-			game1.display_board();
-			gameover = game1.game_over();
-			if(gameover)
+			while(position < 1 || position > 9)
 			{
-				cout<<"\nGame Over\n\n";
-			} 
-		}
+				cout<<"Invalid! Please select position from (1-9): ";
+				cin>>position;
+			}
+    		game1.mark_board(position);
+			
+			game1.display_board();
+			gameover = game1.game_over(); 
+		}while(!gameover);
 
-		cout<<"Continues enter y, any key to exit: ";
+		winner = game1.get_winner();
+		cout<<"\nGame Over\n\n";
+		cout<<"Winner: player "<<winner<<"\n\n";
+
+
+		cout<<"Enter y to continue, any key to exit: ";
 		cin>>choice;
 
 	}
