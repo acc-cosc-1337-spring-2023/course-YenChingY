@@ -1,17 +1,21 @@
 #include<iostream>
 #include "tic_tac_toe.h"
+#include "tic_tac_toe_manager.h"
 
 using std::cout; using std::cin;
 int main() 
 {
-	TicTacToe game1;
+	TicTacToe game;
+	TicTacToeManager manager;
 
-	auto position = 0;
 	string player;
 	string winner;
 	bool gameover = false;
 	auto choice = 'y';
-	
+	int x; 
+	int o;
+	int t;
+
 	while(choice == 'Y' || choice == 'y')
 	{
 		do
@@ -20,32 +24,29 @@ int main()
     		cin>>player;
 		} while (player != "X" && player != "O");
 		
-			game1.get_player();
-			game1.start_game(player);
+			game.start_game(player);
 		do
 		{
-			cout<<"\nSelect a position from (1-9): ";
-    		cin>>position;
-			while(position < 1 || position > 9)
-			{
-				cout<<"Invalid! Please select position from (1-9): ";
-				cin>>position;
-			}
-    		game1.mark_board(position);
-			
-			game1.display_board();
-			gameover = game1.game_over(); 
+			cin>>game;
+			cout<<game;			
+			gameover = game.game_over(); 
 		}while(!gameover);
 
-		winner = game1.get_winner();
+		winner = game.get_winner();
 		cout<<"\nGame Over\n\n";
 		cout<<"Winner: player "<<winner<<"\n\n";
 
+		manager.save_game(game);
+		manager.get_winner_total(x, o, t);
+		cout<<"X wins: "<<x<<"\n";
+		cout<<"O wins: "<<o<<"\n";
+		cout<<"TIES: "<<t<<"\n\n";//need to update
 
 		cout<<"Enter y to continue, any key to exit: ";
 		cin>>choice;
 
 	}
+	cout<<manager;//need to update the total chart
 	cout<<"Bye...\n";
 
 	return 0;

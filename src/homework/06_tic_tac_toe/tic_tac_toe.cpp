@@ -6,26 +6,6 @@
 
 using std::cout; using std::cin; using std::vector; using std::string;
 
-void TicTacToe::display_board() const
-{
-    for(int i = 0; i < pegs.size(); i++)
-    {
-        if(i == 2 || i == 5 )
-        {
-            cout<<pegs[i]<<"\n";
-            cout <<"-----\n";
-        }
-        else if (i == 8)
-        {
-            cout<<pegs[i]<<"\n";
-        }
-        else
-        {
-            cout<<pegs[i]<<"|";
-        }
-    }
-}
-
 void TicTacToe::start_game(std::string first_player)
 {
     player = first_player;
@@ -173,6 +153,44 @@ bool TicTacToe::check_diagonal_win()
     else
     return false;
 }
+
+std::ostream& operator<<(std::ostream& out, const TicTacToe& game)
+{
+    for(int i = 0; i < game.pegs.size(); i++)
+    {
+        if(i == 2 || i == 5 )
+        {
+            out<<game.pegs[i]<<"\n";
+            out <<"-----\n";
+        }
+        else if (i == 8)
+        {
+            out<<game.pegs[i]<<"\n";
+        }
+        else
+        {
+            out<<game.pegs[i]<<"|";
+        }
+    }
+    return out;
+}
+
+std::istream& operator>>(std::istream& in, TicTacToe& game)
+{
+    auto position = 0;
+
+    cout<<"\nSelect a position from (1-9): ";
+    cin>>position;
+	while(position < 1 || position > 9)
+	{
+		cout<<"Invalid! Please select position from (1-9): ";
+		in>>position;
+	}
+    game.mark_board(position);
+
+    return in;
+}
+
 
 
 
