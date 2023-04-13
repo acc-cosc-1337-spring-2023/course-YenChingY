@@ -1,21 +1,33 @@
 //main
 #include <iostream>
-#include<memory>
-#include<vector>
 #include "shape.h"
 #include "line.h"
 #include "circle.h"
-/*
-Create a Shape pointer of type Line
-Create vector of Shape pointers
-iterate with auto
-*/
-
-using std::unique_ptr; using std::make_unique; using std::vector;
 
 int main() 
 {
-	unique_ptr<Shape> shape = make_unique<Line>();
+	const auto SIZE = 3;
+	Circle circles[SIZE];
+
+	circles[0].draw();
+	circles[1].draw();
+	circles[2].draw();
+
+	Line lines[SIZE];
+
+	for (auto line: lines)
+	{
+		line.draw();
+	}
+
+	Shape* shapes = circles;//not dynamic memory. pointer point to the data of memory
+	shapes->draw();
+
+	shapes = lines;//point to another object
+	shapes->draw();
+
+
+	/*unique_ptr<Shape> shape = make_unique<Line>();
 	shape->draw();
 	unique_ptr<Shape> shape1 = make_unique<Circle>();
 	shape1->draw();
@@ -28,6 +40,7 @@ int main()
 	{
 		shape->draw();
 	}
+	*/
 
 	/*Shape* shape;//create dynamic memory
 
