@@ -26,7 +26,7 @@ int main()
 	while(choice == 'Y' || choice == 'y')
 	{
 
-		cout<<"Play TicTacToe 3*3(enter 3) or TicTacToe 4*4 (enter 4): ";
+		cout<<"\nPlay TicTacToe 3*3(enter 3) or TicTacToe 4*4 (enter 4): ";
 		cin>>size;
 
 		if(size == 3)

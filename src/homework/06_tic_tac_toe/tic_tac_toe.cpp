@@ -121,7 +121,7 @@ std::ostream& operator<<(std::ostream& out, const TicTacToe& game)
     int size = game.pegs.size();
     for(int i = 0; i < size; i++)
     {
-        while(size == 9)
+        if(size == 9)
         {
             if(i == 2 || i == 5 )
             {
@@ -137,7 +137,7 @@ std::ostream& operator<<(std::ostream& out, const TicTacToe& game)
                out<<game.pegs[i]<<"|";
             }
         }
-        while(size == 16)
+        if(size == 16)
         {
             if(i == 3 || i == 7 || i == 11)
             {
