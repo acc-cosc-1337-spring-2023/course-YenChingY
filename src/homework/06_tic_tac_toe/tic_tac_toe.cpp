@@ -29,15 +29,12 @@ void TicTacToe::clear_board()
 
 void TicTacToe::mark_board(int position)
 {
-    //if(pegs[position - 1] != " " )
-    //{
-    //    cout<<"The space taken. Please select a new position\n";
-    //}
-    //else
-    //{
+    if(pegs[position-1] == " ")
+    {
         pegs[position - 1] = player;
-    //}
-    set_next_player();
+        set_next_player();
+    }
+ 
 }
 
 void TicTacToe::set_next_player()
