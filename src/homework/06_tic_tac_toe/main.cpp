@@ -53,7 +53,12 @@ int main()
 
 		winner = game->get_winner();
 		cout<<"\nGame Over\n\n";
-		cout<<"Winner: player "<<winner<<"\n\n";
+		if(winner == "X" || winner == "O")
+		{
+		cout<<"Winner: player "<<winner<<"\n\n"; //need to update the tie situation
+		}
+		else
+		cout<<"Tie\n\n";
 
 		manager.save_game(game);
 		manager.get_winner_total(x, o, t);
@@ -65,7 +70,7 @@ int main()
 		cin>>choice;
 
 	}
-	cout<<manager;//need to update the total chart
+	cout<<manager;
 	cout<<"Bye...\n";
 
 	return 0;
