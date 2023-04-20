@@ -5,17 +5,11 @@ using std::cout;
 
 int main() 
 {
-	//call function 1 time
-	memory_leak();
-	int* nums = new int[3]{};
-	cout<<nums[0]<<"\n";
-	nums[0] = 5;
-	cout<<nums[0]<<"\n";
-
-	delete nums;
-	
-	//call function in a loop
-	
+	//use_dynamic_memory_array(3);
+	//limit_dynamic_memory_scope(3);
+	cout<<"load to stack\n";
+	use_dynamic_array(3);
+	cout<<"unload from stack\n";
 	
 	return 0;
 }
