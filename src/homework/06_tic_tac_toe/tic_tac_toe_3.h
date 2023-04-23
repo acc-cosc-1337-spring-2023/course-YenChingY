@@ -11,6 +11,7 @@ public:
     TicTacToe3() : TicTacToe(3){}
     TicTacToe3(std::vector<string> pegs, string winner) : TicTacToe(pegs, winner){}
     //more code here. Don’t forget to pass p and winner to TicTacToe via constructor
+    void get_board_type(){std::cout<<"TicTacToe3\n";} 
 
 private:
     bool check_column_win();

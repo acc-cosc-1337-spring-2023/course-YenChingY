@@ -64,6 +64,7 @@ std::vector<std::unique_ptr<TicTacToe>> TicTacToeData::get_games()
     else
     {
         cout<<"Cannot open the file...\n";
+        return boards;
     }    
 }
 
