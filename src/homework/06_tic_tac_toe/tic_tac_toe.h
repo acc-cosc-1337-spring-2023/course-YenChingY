@@ -13,6 +13,9 @@ class TicTacToe
 public:
     TicTacToe() : pegs(9, " "){}
     TicTacToe(int size) : pegs(size*size, " "){}
+    TicTacToe(std::vector<string> pegs, string winner) {pegs = pegs, winner = winner;}
+    //more code here to initialize the pegs vector with p and initialize winner.
+    vector<string> get_pegs() const{return pegs;}
     bool game_over();
     void start_game(string first_player);
     void mark_board(int position); 

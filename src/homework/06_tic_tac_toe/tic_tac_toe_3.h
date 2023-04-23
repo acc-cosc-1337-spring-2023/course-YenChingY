@@ -8,7 +8,9 @@
 class TicTacToe3 : public TicTacToe
 {
 public:
-    TicTacToe3(): TicTacToe(3){}
+    TicTacToe3() : TicTacToe(3){}
+    TicTacToe3(std::vector<string> pegs, string winner) : TicTacToe(pegs, winner){}
+    //more code here. Don’t forget to pass p and winner to TicTacToe via constructor
 
 private:
     bool check_column_win();

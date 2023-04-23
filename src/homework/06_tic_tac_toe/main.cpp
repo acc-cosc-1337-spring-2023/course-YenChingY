@@ -4,6 +4,7 @@
 #include "tic_tac_toe_manager.h"
 #include "tic_tac_toe_3.h"
 #include "tic_tac_toe_4.h"
+#include "tic_tac_toe_data.h"
 
 using std::cout; using std::cin;
 using std::unique_ptr; using std::make_unique;
@@ -12,7 +13,9 @@ int main()
 {
 	//unique_ptr<TicTacToe3> game = make_unique<TicTacToe3>();
 	unique_ptr<TicTacToe> game;
-	TicTacToeManager manager;
+	TicTacToeData data;
+	TicTacToeManager manager(data);
+
 
 	string player;
 	string winner;
