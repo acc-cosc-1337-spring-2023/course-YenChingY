@@ -8,12 +8,15 @@ class Vector
 {
 public:
     Vector(int size);
+    Vector(const Vector& v);//Rule 1 of 3 in legacy c++
     int Size()const{return size;}
     int Capacity()const{return capacity;}
-    ~Vector();
+    int& operator[](int index){return elements[index];}
+    int& operator[](int index) const{return elements[index];}
 
-    //int& operator[](int index){return elements[index];}
-    //int& operator[](int index) const{return elements[index];}
+
+    ~Vector();//Rule 3 of 3 in legacy c++
+
 
 private:
     int* elements;//holds the dynamic list on the heap
@@ -23,3 +26,4 @@ private:
 
 #endif
 void use_vector();
+Vector get_vector();

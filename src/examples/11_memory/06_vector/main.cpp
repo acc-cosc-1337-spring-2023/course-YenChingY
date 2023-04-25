@@ -3,9 +3,9 @@
 
 int main()
 {
-    std::cout<<"load use_vector to the stack\n";
+    //std::cout<<"load use_vector to the stack\n";
     use_vector();
-    std::cout<<"unload use_vector from the stack\n";
+    //std::cout<<"unload use_vector from the stack\n";
 
     return 0;
 }
