@@ -6,7 +6,7 @@
 TEST_CASE("Verify Test Configuration", "verification") {
 	REQUIRE(true == true);
 }
-
+/*
 TEST_CASE("Test ref ptr params function")
 {
 	int num1 = 1;
@@ -43,6 +43,13 @@ TEST_CASE("Test my vector create 2 vectors v v1 overwrite v1 with v")
 	Vector v(3);
 	Vector v1(3);
 	v1 = v;//C++ doesn't know how to handle an equal sign with our class variables
+}
+*/
+TEST_CASE("Test moving v into v1, Test overwrite vector with std move function")
+{
+	Vector v(3);//empty after statement 54 executes
+	Vector v1 = std::move(v);
+
 }
 /*
 TEST_CASE("Test my vector overloaded[]")
