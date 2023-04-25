@@ -3,7 +3,7 @@
 using std::cout;
 //
 Vector::Vector(int size)
-    :capacity{0}, elements{new int[size]}
+    :capacity{size}, elements{new int[size]}
 {
     cout<<"created new memory at "<<elements<<"\n";
 };
@@ -16,6 +16,34 @@ Vector::Vector(const Vector& v)
     {
         elements[i] = v.elements[i];
     }
+}
+
+/*
+1-Create temporary memory for v1
+2-Copy values from v into v1 temporary memory
+3-Delete v1 elements memory
+4-Point v1 elements to teporary memory
+5-Set v1.size to v.size
+6-Return a referance to itself
+*/
+Vector& Vector::operator=(const Vector& v)
+{
+    int* temp = new int[v.size];
+
+    for(auto i=0; i < v.size; i++)
+    {
+        temp[i] = v.elements[i];
+    }
+
+    cout<<"copy assignment delete memory at "<<elements<<"\n";
+    delete[] elements;
+
+    elements = temp;
+    cout<<"copy assignment new memoery created "<<elements<<"\n";
+    temp = nullptr;
+    size = v.size;
+
+    return *this;//this is class itself in memory
 }
 
 Vector::~Vector()

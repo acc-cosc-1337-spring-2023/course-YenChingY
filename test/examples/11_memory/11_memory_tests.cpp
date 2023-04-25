@@ -1,6 +1,7 @@
 #define CATCH_CONFIG_MAIN  // This tells Catch to provide a main() - only do this in one cpp file
 #include "catch.hpp"
 #include "ref_pointers.h"
+#include "my_vector.h"
 
 TEST_CASE("Verify Test Configuration", "verification") {
 	REQUIRE(true == true);
@@ -15,3 +16,47 @@ TEST_CASE("Test ref ptr params function")
 	REQUIRE(num1 == 10);
 	REQUIRE(num2 == 20);
 }
+
+TEST_CASE("Test empty my vector size")
+{
+	Vector v(3);
+	REQUIRE(v.Size() == 0);
+}
+
+TEST_CASE("Test my vector capacity")
+{
+	Vector v(3);
+	REQUIRE(v.Capacity() == 3);
+}
+
+TEST_CASE("Test create Vector v1 from existing v")
+{
+	Vector v(3);
+	Vector v1 = v;
+
+	REQUIRE(v1.Size() == v.Size());
+	REQUIRE(v1.Capacity() == v.Capacity());
+}
+
+TEST_CASE("Test my vector create 2 vectors v v1 overwrite v1 with v")
+{
+	Vector v(3);
+	Vector v1(3);
+	v1 = v;//C++ doesn't know how to handle an equal sign with our class variables
+}
+/*
+TEST_CASE("Test my vector overloaded[]")
+{
+	Vector v(3);
+	v[0] = 5;
+
+	REQUIRE(v[0] == 5);
+}
+
+
+TEST_CASE("Test overwrite v with a value return from a function")
+{
+	Vector v(3);
+	v = get_vector();
+}
+*/
