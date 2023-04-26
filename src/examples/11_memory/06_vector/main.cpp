@@ -1,15 +1,28 @@
 //
 #include "my_vector.h"
+#include<string>
+
+using std::cout; using std::string;
+
+
+template<typename T>
+T add(T value1, T value2)
+{
+    return value1 + value2;
+}
 
 int main()
 {
-    //std::cout<<"load use_vector to the stack\n";
-    //use_vector();
-    //std::cout<<"unload use_vector from the stack\n";
-    int num = 5;
-    int& num_ref = num;
-    //5 = num; we can't do this; becasue 5 is not a variable
-    //int& five = 5;
+    auto result = add(5, 10);
+    cout<<"Result: "<<result<<"\n";
+
+    auto result1 = add(5.5, 10.3);
+    cout<<"Result: "<<result1<<"\n";
+
+    string v1 = "C++ ";
+    string v2 = "rocks";
+    auto result2 = add(v1, v2);
+    cout<<"Result: "<<result2<<"\n";
 
     return 0;
 }
