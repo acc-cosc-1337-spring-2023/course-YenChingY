@@ -6,7 +6,7 @@
 TEST_CASE("Verify Test Configuration", "verification") {
 	REQUIRE(true == true);
 }
-/*
+
 TEST_CASE("Test ref ptr params function")
 {
 	int num1 = 1;
@@ -19,19 +19,19 @@ TEST_CASE("Test ref ptr params function")
 
 TEST_CASE("Test empty my vector size")
 {
-	Vector v(3);
+	Vector<int> v(3);
 	REQUIRE(v.Size() == 0);
 }
 
 TEST_CASE("Test my vector capacity")
 {
-	Vector v(3);
+	Vector<int> v(3);
 	REQUIRE(v.Capacity() == 3);
 }
 
 TEST_CASE("Test create Vector v1 from existing v")
 {
-	Vector v(3);
+	Vector<int> v(3);
 	Vector v1 = v;
 
 	REQUIRE(v1.Size() == v.Size());
@@ -40,21 +40,21 @@ TEST_CASE("Test create Vector v1 from existing v")
 
 TEST_CASE("Test my vector create 2 vectors v v1 overwrite v1 with v")
 {
-	Vector v(3);
-	Vector v1(3);
+	Vector<int> v(3);
+	Vector<int> v1(3);
 	v1 = v;//C++ doesn't know how to handle an equal sign with our class variables
 }
 
 TEST_CASE("Test moving v into v1, Test overwrite vector with std move function")
 {
-	Vector v(3);//empty after statement 54 executes
+	Vector<int> v(3);//empty after statement 54 executes
 	Vector v1 = std::move(v);
 
 }
 
 TEST_CASE("Test my vector overloaded[]")
 {
-	Vector v(3);
+	Vector<int> v(3);
 	v[0] = 5;
 
 	REQUIRE(v[0] == 5);
@@ -63,14 +63,14 @@ TEST_CASE("Test my vector overloaded[]")
 
 TEST_CASE("Test overwrite existing vector with a value return vector function")
 {
-	Vector v1(3);
+	Vector<int> v1(3);
 	v1 = get_vector();
 }
-*/
+
 
 TEST_CASE("Test vector push back w capacity 3")
 {
-	Vector v(3);
+	Vector<int> v(3);
 	REQUIRE(v.Size() == 0);
 	REQUIRE(v.Capacity() == 3);
 
@@ -94,3 +94,12 @@ TEST_CASE("Test vector push back w capacity 3")
 	REQUIRE(v.Capacity() == 6);
 	REQUIRE(v[3] == 100);
 }
+
+/* error double free or corruption (out)
+TEST_CASE("Test pushback to list with capacity 0")
+{
+	Vector v;
+	REQUIRE(v.Size() == 0);
+	REQUIRE(v.Capacity() == 0);
+}
+*/

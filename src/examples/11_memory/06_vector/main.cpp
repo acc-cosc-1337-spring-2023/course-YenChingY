@@ -1,28 +1,21 @@
 //
 #include "my_vector.h"
-#include<string>
 
-using std::cout; using std::string;
-
-
-template<typename T>
-T add(T value1, T value2)
-{
-    return value1 + value2;
-}
+using std::cout;
 
 int main()
 {
-    auto result = add(5, 10);
-    cout<<"Result: "<<result<<"\n";
+    Vector<int> nums;
+    nums.PushBack(5);
+    cout<<nums[0]<<"\n\n";
+    
+    Vector<double> doubles;
+    doubles.PushBack(10.5);
+    cout<<doubles[0]<<"\n\n";
 
-    auto result1 = add(5.5, 10.3);
-    cout<<"Result: "<<result1<<"\n";
-
-    string v1 = "C++ ";
-    string v2 = "rocks";
-    auto result2 = add(v1, v2);
-    cout<<"Result: "<<result2<<"\n";
+    Vector<char> chars;
+    chars.PushBack('a');
+    cout<<chars[0]<<"\n\n";
 
     return 0;
 }
